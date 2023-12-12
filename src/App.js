@@ -29,11 +29,9 @@ const useStyles = makeStyles({
 });
 
 const sectionStyle = {
-  height: "100vh",
-
+  height: "116vh",
   backgroundImage:
-    "url('./Mechatronics_Banner.jpg') ",
-
+    "url('./barcodebanner.jpg') ",
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover"
 };
@@ -258,11 +256,11 @@ function App() {
           <Box
             component="img"
             className={classes.logo}
-            alt="MagnaLogo."
-            src="./MagnaLogo.png"
+            alt="BarCodeLogo."
+            src="./scanMe.PNG"
           />
           <Grid container justifyContent="flex-end" sx={{ display: displyTata === false ? 'flex' : 'none' }}>
-            <Button onClick={switchToTata}>TATA</Button>
+            <Button onClick={switchToTata}>Serial</Button>
           </Grid>
           <Grid container justifyContent="flex-end" sx={{ display: displyTata === false ? 'none' : 'flex' }}>
             <Button onClick={switchToTata}>Back</Button>
@@ -281,7 +279,7 @@ function App() {
                 onScan={handleScan}
               />
 
-              <Box> <TextField id="scanData1" label="Customer Part Number" value={scanData1} disabled sx={app_style.inputSx} /></Box>
+              <Box> <TextField id="scanData1" label="Customer Part Number (scan me)" value={scanData1} disabled sx={app_style.inputSx} /></Box>
               <Box sx={{ mt: 2 }} > <TextField id="scanData2" label="Container Number" value={scanData2} onKeyDown={focusinput} onChange={inputfield} sx={app_style.inputSx} /></Box>
               {/* <Input style={{ padding: "10px", fontSize: "large"  }} value={scanData2} type="text" ></Input> */}
               <Box sx={{ mt: 2 }}>
@@ -371,7 +369,7 @@ function App() {
       <Box sx={displyTata === true ? app_style.appSx : app_style.appSxN}>
         <Card raised='true' sx={app_style.cardSxT}>
           <Typography sx={app_style.cardHeading}>
-            TATA Serial Number Validation
+            Serial Number Validation
           </Typography>
           <CardContent>
             <Box sx={{ mt: 2 }}>
@@ -380,7 +378,7 @@ function App() {
                 onScan={handleScanTata}
               />
 
-              <Box> <TextField id="scanTata1" label="Barcode" value={scanTata1} disabled sx={app_style.inputSxT} /></Box>
+              <Box> <TextField id="scanTata1" label="Barcode (scan me)" value={scanTata1} disabled sx={app_style.inputSxT} /></Box>
               <Box sx={{ mt: 2 }} > <TextField id="scanTata2" label="TML Part No" disabled value={scanTata2} sx={app_style.inputSxT} /></Box>
               <Box sx={{ mt: 2 }} > <TextField id="scanTata3" label="Revision No" disabled value={scanTata3} sx={app_style.inputSxT} /></Box>
               <Box sx={{ mt: 2 }} > <TextField id="scanTata4" label="Vendor Code" disabled value={scanTata4} sx={app_style.inputSxT} /></Box>
