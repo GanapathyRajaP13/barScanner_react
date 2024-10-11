@@ -13,7 +13,6 @@ import Paper from "@mui/material/Paper";
 import Draggable from "react-draggable";
 import api from "./config";
 import BarcodeReader from "react-barcode-reader";
-import makeStyles from "@mui/styles/makeStyles";
 import AutorenewIcon from "@mui/icons-material/Autorenew";
 import {
   Box,
@@ -29,12 +28,6 @@ const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-const useStyles = makeStyles({
-  logo: {
-    maxWidth: 160,
-  },
-});
-
 function PaperComponent(props) {
   return (
     <Draggable
@@ -47,7 +40,6 @@ function PaperComponent(props) {
 }
 
 function App() {
-  const classes = useStyles();
   let interval;
   const [scanData1, setScanData1] = useState("");
   const [scanData2, setScanData2] = useState("");
@@ -263,25 +255,25 @@ function App() {
     <Box style={sectionStyle}>
       <AppBar color="inherit">
         <Toolbar>
-          <Box
-            component="img"
-            className={classes.logo}
-            alt="BarCodeLogo."
-            src="./scanMe.PNG"
-          />
-          <Grid
-            container
-            justifyContent="flex-end"
-            sx={{ display: displyTata === false ? "flex" : "none" }}
-          >
-            <Button onClick={switchToTata}>Serial</Button>
-          </Grid>
-          <Grid
-            container
-            justifyContent="flex-end"
-            sx={{ display: displyTata === false ? "none" : "flex" }}
-          >
-            <Button onClick={switchToTata}>Back</Button>
+          <Box sx={{ width: "100%" }}>
+            <Typography
+              variant="h5"
+              style={{
+                flexGrow: 1,
+                textDecoration: "underline",
+              }}
+            >
+              Label Validation
+            </Typography>
+          </Box>
+          <Grid container justifyContent="flex-end" sx={{ ml: 2 }}>
+            <Button
+              onClick={switchToTata}
+              variant="contained"
+              color={displyTata ? "secondary" : "primary"}
+            >
+              {displyTata ? "Back" : "Serial"}
+            </Button>
           </Grid>
         </Toolbar>
       </AppBar>
